@@ -1,124 +1,1079 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yanagisea | Research & Dev</title>
+    <title>yanagisea | Research Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #171717; scroll-behavior: smooth; }
-        code { font-family: 'JetBrains Mono', monospace; }
-        .tab-btn { transition: all 0.2s; border-bottom: 2px solid transparent; }
-        .tab-btn.active { border-bottom-color: #171717; color: #171717; font-weight: 700; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-        ruby rt { font-size: 0.6em; color: #71717a; }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b;
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+
+        /* Font size scaling */
+        .text-xs { font-size: 0.8125rem !important; }
+        .text-sm { font-size: 0.9375rem !important; }
+        .text-\[10px\] { font-size: 0.75rem !important; }
+        .text-\[15px\] { font-size: 1rem !important; }
+        .text-3xl { font-size: 2rem !important; }
+
+        .serif {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Tab Styling */
+        .tab-btn {
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .tab-btn.active {
+            border-bottom-color: #38bdf8;
+            color: #f1f5f9;
+            font-weight: 700;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+            border: 1px solid #64748b;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-card h1 { color: #f1f5f9 !important; }
+        .profile-card p { color: #e2e8f0 !important; }
+        .profile-card .text-slate-400 { color: #cbd5e1 !important; }
+        .profile-card .text-slate-500 { color: #cbd5e1 !important; }
+        .profile-card .text-slate-600 { color: #e2e8f0 !important; }
+        .profile-card .text-zinc-400 { color: #a1a1aa !important; }
+        .profile-card a.text-slate-400 { color: #cbd5e1 !important; }
+        .profile-card a:hover { color: #f1f5f9 !important; }
+        /* Dark theme overrides */
+        .bg-white { background-color: #334155 !important; }
+        .bg-slate-50 { background-color: #334155 !important; }
+        .bg-slate-100 { background-color: #475569 !important; }
+        .border-slate-100 { border-color: #475569 !important; }
+        .border-slate-200 { border-color: #64748b !important; }
+        .text-slate-900 { color: #f1f5f9 !important; }
+        .text-slate-800 { color: #e2e8f0 !important; }
+        .text-slate-700 { color: #cbd5e1 !important; }
+        .text-slate-600 { color: #94a3b8 !important; }
+        .text-slate-500 { color: #94a3b8 !important; }
+        .text-slate-400 { color: #94a3b8 !important; }
+        .hover\:text-slate-900:hover { color: #f1f5f9 !important; }
+        .before\:via-slate-300::before { --tw-gradient-via: #64748b !important; }
+
+        /* Link colors for dark mode */
+        a.text-blue-600 { color: #60a5fa !important; }
+        a:hover { color: #93c5fd !important; }
+        .text-indigo-600 { color: #a5b4fc !important; }
+        .text-green-600 { color: #86efac !important; }
+        .text-green-700 { color: #4ade80 !important; }
+        .text-amber-600 { color: #fcd34d !important; }
+
+        /* Publication card backgrounds for dark mode */
+        .bg-indigo-50\/50 { background-color: rgba(99, 102, 241, 0.15) !important; }
+        .bg-green-50\/50 { background-color: rgba(34, 197, 94, 0.15) !important; }
+        .bg-amber-50\/30 { background-color: rgba(245, 158, 11, 0.15) !important; }
+        .bg-indigo-50 { background-color: rgba(99, 102, 241, 0.15) !important; }
+        .bg-green-50 { background-color: rgba(34, 197, 94, 0.15) !important; }
+        .bg-amber-50 { background-color: rgba(245, 158, 11, 0.15) !important; }
+
+        /* Publication card borders for dark mode */
+        .border-indigo-100 { border-color: rgba(129, 140, 248, 0.4) !important; }
+        .border-green-100 { border-color: rgba(74, 222, 128, 0.4) !important; }
+        .border-amber-100 { border-color: rgba(251, 191, 36, 0.4) !important; }
+        .hover\:border-indigo-300:hover { border-color: rgba(165, 180, 252, 0.6) !important; }
+        .hover\:border-green-300:hover { border-color: rgba(134, 239, 172, 0.6) !important; }
+        .hover\:border-slate-300:hover { border-color: #64748b !important; }
+
+        /* Publication badges for dark mode */
+        .bg-indigo-100 { background-color: rgba(129, 140, 248, 0.25) !important; }
+        .bg-green-100 { background-color: rgba(74, 222, 128, 0.25) !important; }
+        .bg-amber-100 { background-color: rgba(251, 191, 36, 0.25) !important; }
+        .text-indigo-600.rounded-full, span.text-indigo-600 { color: #c7d2fe !important; }
+        .text-green-700.rounded-full, span.text-green-700 { color: #bbf7d0 !important; }
+
+        /* Text colors for publication content */
+        .group-hover\:text-indigo-600:hover { color: #a5b4fc !important; }
+        .group-hover\:text-green-700:hover { color: #86efac !important; }
+        .group-hover\:text-blue-600:hover { color: #93c5fd !important; }
+
+        /* Domestic conference section header */
+        h3.text-slate-600 { color: #94a3b8 !important; }
     </style>
 </head>
-<body class="max-w-2xl mx-auto px-6 py-20">
 
-    <header class="mb-12">
-        <h1 class="text-3xl font-bold tracking-tight mb-2">
-            yanagisea <ruby class="ml-2 text-2xl font-normal text-zinc-600">彩霞<rt>さいか</rt></ruby>
-        </h1>
-        <p class="text-zinc-500 font-medium leading-relaxed">
-            Ph.D. Candidate, Aerospace Information Engineering<br>
-            Konkuk University, Seoul, Korea
-        </p>
-        <nav class="mt-6 flex gap-5 text-sm font-semibold">
-            <a href="https://github.com/yanagisea" class="text-zinc-900 hover:underline underline-offset-4">GitHub</a>
-            <a href="mailto:yanagisea@example.com" class="text-zinc-900 hover:underline underline-offset-4">Email</a>
+<body class="py-12 px-4 md:py-20">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="profile-card p-8 mb-8">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div
+                    class="w-32 h-32 md:w-40 md:h-40 bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shrink-0">
+                    <img src="프로필사진_저용량.png" alt="Profile" class="w-full h-full object-cover">
+                </div>
+
+                <div class="text-center md:text-left flex-1">
+                    <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 mb-1">Sea Ryu</h1>
+                    <p class="serif text-sm text-slate-500 mb-1 tracking-wide">
+                        류세아 · <ruby>柳<rt>やなぎ</rt>世<rt>せ</rt>亜<rt>あ</rt></ruby>（リュセア）
+                    </p>
+                    <p class="serif text-xs text-slate-400 mb-4 tracking-wide">
+                        <span class="opacity-70 text-xs mr-1 italic text-zinc-400 font-sans">雅号:</span>
+                        <ruby>彩<rt>さい</rt>霞<rt>か</rt></ruby>
+                        <span class="text-xs text-slate-400 ml-1">(Saika, 채하)</span>
+                    </p>
+                    <p class="text-slate-600 font-medium leading-snug mb-5">
+                        Ph.D. Candidate, Aerospace Information Engineering<br>
+                        <span class="text-sm text-slate-400">Researcher, Aerospace Design·Airworthiness
+                            Institute</span><br>
+                        <span class="text-sm text-slate-400">Konkuk University, Seoul, Korea</span>
+                    </p>
+
+                    <div class="flex justify-center md:justify-start gap-5 text-xl">
+                        <a href="https://github.com/yanagisea" title="GitHub"
+                            class="text-slate-400 hover:text-slate-900"><i class="fab fa-github"></i></a>
+                        <a href="https://scholar.google.com/citations?user=WPntuxgAAAAJ&hl=ko" title="Google Scholar"
+                            class="text-slate-400 hover:text-blue-600"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://orcid.org/0009-0008-0765-9752" title="ORCID"
+                            class="text-slate-400 hover:text-green-500"><i class="fab fa-orcid"></i></a>
+                        <a href="mailto:stardong@konkuk.ac.kr" title="Email"
+                            class="text-slate-400 hover:text-red-500"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav
+            class="flex justify-center gap-2 md:gap-4 lg:gap-6 border-b border-slate-200 mb-10 text-xs md:text-sm flex-wrap">
+            <button class="tab-btn pb-3 active" onclick="showTab(event, 'home')">Home</button>
+            <button class="tab-btn pb-3" onclick="showTab(event, 'research')">Research</button>
+            <button class="tab-btn pb-3" onclick="showTab(event, 'awards')">Awards</button>
+            <button class="tab-btn pb-3" onclick="showTab(event, 'skills')">Skills</button>
+            <button class="tab-btn pb-3" onclick="showTab(event, 'career')">Career</button>
+            <button class="tab-btn pb-3" onclick="showTab(event, 'publications')">Publications</button>
+            <button class="tab-btn pb-3" onclick="showTab(event, 'resources')">Resources</button>
+            <button class="tab-btn pb-3" onclick="showTab(event, 'photos')">Photos</button>
         </nav>
-    </header>
 
-    <section class="mb-12">
-        <h2 class="text-xs uppercase tracking-widest text-zinc-400 font-bold mb-4">Biography</h2>
-        <p class="leading-relaxed text-zinc-700">
-            Research on <strong>Aerodynamics, CFD, and Aerodynamic Shape Optimization</strong>. 
-            My current work focuses on aerodynamic analysis of <strong>UAM</strong> using 
-            <code class="bg-zinc-100 px-1 rounded text-sm text-blue-600 font-semibold">Adjoint Methods</code> and 
-            <code class="bg-zinc-100 px-1 rounded text-sm text-blue-600 font-semibold">Aeroacoustics</code>. 
-            I am also actively involved in modernizing legacy aerospace codes.
-        </p>
-    </section>
+        <main>
+            <div id="home" class="tab-content active space-y-12">
+                <section>
+                    <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Biography</h2>
+                    <p class="text-slate-700 leading-relaxed text-[15px]">
+                        I am focusing on <strong>Computational Fluid Dynamics(CFD)</strong>.
+                        My research involves aerodynamic analysis and shape optimisation for UAM and flight vehicles,
+                        utilising <strong>Adjoint methods</strong> to improve design efficiency.
+                        My background includes <strong>aircraft system design</strong> and aerodynamic analysis for
+                        various flight vehicles, including launch systems.
+                    </p>
+                </section>
 
-    <section class="mb-16">
-        <h2 class="text-xs uppercase tracking-widest text-zinc-400 font-bold mb-4">Expertise & Skills</h2>
-        <div class="space-y-3 text-sm">
-            <div class="flex border-b border-zinc-100 pb-2">
-                <span class="w-1/3 font-bold text-zinc-400">Application</span>
-                <span>UAM, Launch Vehicle, Tilt-rotor</span>
+                <section>
+                    <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Core Expertise</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div class="p-4 bg-white border border-slate-100 rounded-lg">
+                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Research</h4>
+                            <p class="text-slate-700 font-medium">UAM, Launch Vehicles, Aeroacoustics</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-lg">
+                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Methodology</h4>
+                            <p class="text-slate-700 font-medium italic">CFD, Adjoint Optimisation, Aeroacoustics</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-lg">
+                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Languages</h4>
+                            <p class="text-slate-700 font-medium">Korean (Native), Japanese, English</p>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="flex border-b border-zinc-100 pb-2">
-                <span class="w-1/3 font-bold text-zinc-400">Methodology</span>
-                <span>Adjoint-based Design Optimization, CFD, TSM</span>
-            </div>
-            <div class="flex border-b border-zinc-100 pb-2">
-                <span class="w-1/3 font-bold text-zinc-400">Programming</span>
-                <span class="font-medium italic">Fortran, C++, Python</span>
-            </div>
-            <div class="flex border-b border-zinc-100 pb-2">
-                <span class="w-1/3 font-bold text-zinc-400">Languages</span>
-                <span>Korean (Native), English, Japanese</span>
-            </div>
-        </div>
-    </section>
 
-    <div class="flex gap-6 border-b border-zinc-200 mb-8 text-sm text-zinc-400 font-medium">
-        <button class="tab-btn pb-2 active" onclick="showTab(event, 'projects')">Projects</button>
-        <button class="tab-btn pb-2" onclick="showTab(event, 'career')">Career</button>
-        <button class="tab-btn pb-2" onclick="showTab(event, 'publications')">Publications</button>
-        <button class="tab-btn pb-2" onclick="showTab(event, 'photos')">Photos</button>
+            <div id="research" class="tab-content">
+                <div class="space-y-8">
+                    <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Research Experience
+                    </h2>
+
+                    <!-- Aerodynamics -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Project on
+                            Aerodynamics</h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Fighter Backward Body Analysis</h4>
+                                    <div class="text-xs text-slate-400 font-mono">Korea Aerospace Industries</div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Generate Aerodynamic DB of Various Backward Body Configuration</li>
+                                    <li>Capture of Drag induced by jet plume and Nozzles</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">LSA Flap Analysis</h4>
+                                    <div class="text-xs text-slate-400 font-mono">Ministry of Land, Infrastructure and
+                                        Transport</div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>2D and 3D Flap analysis about Light Sport Aircraft</li>
+                                    <li>Generate of Aerodynamics DB</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Aircraft Nonlinear Aerodynamics</h4>
+                                    <div class="text-xs text-slate-400 font-mono">Korea Aerospace Industries</div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Nonlinear Aerodynamic analysis at High AOA and AOS</li>
+                                    <li>Figure out Aerodynamic Coefficient of Delta Wing and fighters</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Super/Hypersonic -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Project on
+                            Super/Hypersonic</h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Fluid-Thermal Analysis of Hypersonic
+                                        Air Intake</h4>
+                                    <div class="text-xs text-slate-400 font-mono">Agency for Defence Development</div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Aerodynamic Analysis of Hypersonic Air Intake</li>
+                                    <li>Analysis of Fluid-Thermal Interaction and Figure out the optimum design</li>
+                                    <li>Development of Aero-Thermal Analysis Tool</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Jet Vane Analysis</h4>
+                                    <div class="text-xs text-slate-400 font-mono">LIG Nex1</div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Analysis of Jet Vane</li>
+                                    <li>Force and Momentum analysis due to Vane deflections</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Icing -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Project on
+                            Icing</h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Icing around Pitot-Tube</h4>
+                                    <div class="text-xs text-slate-400 font-mono">YONGBEEAT Co. Ltd.</div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Comparison of aerodynamic analysis with theoretical values (pressure, flow
+                                        speed)</li>
+                                    <li>Validation against wind tunnel test results</li>
+                                    <li>Icing simulation using CFD results</li>
+                                    <li>Heat transfer analysis for anti-icing design optimisation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Computing & Optimization -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Research on
+                            Computing & Optimisation</h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Rarefied Gas & Hypersonic Design</h4>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>DSMC Code Development (1D and 2D) and Study with SPARTA</li>
+                                    <li>Development of Hypersonic Aerodynamic Design Tool</li>
+                                    <li>Study on Hypersonic Aerodynamics and Re-entry Vehicles</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Parallel & Quantum Computing</h4>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Study on MPI, OpenMP, CUDA, OpenACC, GPGPU, Hybrid Computing</li>
+                                    <li>CFD Acceleration with Quantum Computing algorithm development</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Optimisation</h4>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Aerodynamic Optimisation</li>
+                                    <li>Multidisciplinary Optimisation</li>
+                                    <li>Adjoint Method</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Other -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Other Projects
+                        </h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Standardisation of Drone Noise Rating
+                                    </h4>
+                                    <div class="text-xs text-slate-400 font-mono">Defence Agency for Technology and
+                                        Quality
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Civil/Military Dual-Use Drone Noise Rating and Test Evaluation Procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="awards" class="tab-content">
+                <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Awards & Honors</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-500 bg-slate-50">
+                        <div class="text-indigo-500 mt-1"><i class="fas fa-trophy"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-sm">Grand Prize, Creative Design Competition</h3>
+                            <div class="text-xs text-slate-500 mb-1">Konkuk University | 2010</div>
+                            <p class="text-xs text-slate-600 italic">Subject: Cross-rotating Helicopter</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 border-l-2 border-slate-300 bg-white">
+                        <div class="text-slate-400 mt-1"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-sm">Selection (Ip-Seon), 3rd Creative Design
+                                Competition
+                            </h3>
+                            <div class="text-xs text-slate-500 mb-1">Konkuk University | 2011</div>
+                            <p class="text-xs text-slate-600 italic">Subject: Design concept of Flying Wing using
+                                Variable Wing
+                                and TVC</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 border-l-2 border-amber-600 bg-amber-50/30">
+                        <div class="text-amber-600 mt-1"><i class="fas fa-medal"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-sm">Bronze Prize, 4th Creative Design Competition
+                            </h3>
+                            <div class="text-xs text-slate-500 mb-1">Konkuk University | 2012</div>
+                            <p class="text-xs text-slate-600 italic">Subject: Coaxial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="skills" class="tab-content">
+                <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Skills & Techniques</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-700 mb-3">Experimental & Analysis</h3>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg border border-slate-100">
+                                <div class="text-xs font-bold text-slate-500 mb-1 uppercase">Wind Tunnel Test</div>
+                                <p class="text-xs text-slate-700">Subsonic/Supersonic Wind Tunnel test design and
+                                    analysis</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100">
+                                <div class="text-xs font-bold text-slate-500 mb-1 uppercase">CFD Tools</div>
+                                <p class="text-xs text-slate-700">ANSYS, OpenFOAM, SU2 and various open source/in-house
+                                    tools
+                                </p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100">
+                                <div class="text-xs font-bold text-slate-500 mb-1 uppercase">DSMC Tools</div>
+                                <p class="text-xs text-slate-700">SPARTA and various open source/in-house tools</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-700 mb-3">Computing & Software</h3>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg border border-slate-100">
+                                <div class="text-xs font-bold text-slate-500 mb-1 uppercase">Programming Languages</div>
+                                <p class="text-xs text-slate-700 font-mono">FORTRAN, C, C++, Python, Objective C, Swift
+                                </p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100">
+                                <div class="text-xs font-bold text-slate-500 mb-1 uppercase">Parallel Computation</div>
+                                <p class="text-xs text-slate-700">MPI, OpenMP, CUDA, OpenACC and Hybrid parallel
+                                    computation</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100">
+                                <div class="text-xs font-bold text-slate-500 mb-1 uppercase">Engineering Software</div>
+                                <p class="text-xs text-slate-700">MATLAB, Mathematica, Tecplot, PARAVIEW, CATIA,
+                                    AUTOCAD,
+                                    Fusion360</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100">
+                                <div class="text-xs font-bold text-slate-500 mb-1 uppercase">Quantum & AI</div>
+                                <p class="text-xs text-slate-700">IBMQ, Amazon AWS, Artificial Intelligence Introductory
+                                    Course
+                                    (WISET/KOSSA)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
     </div>
 
-    <div id="projects" class="tab-content active">
-        <div class="rounded-xl overflow-hidden border border-zinc-100 p-4 bg-zinc-50 mb-6">
-            <img src="https://github-readme-stats.vercel.app/api?username=yanagisea&show_icons=true&theme=transparent&hide_border=true&title_color=111827&text_color=4b5563&icon_color=2563eb" alt="GitHub Stats" class="w-full">
-        </div>
-        <p class="text-sm text-zinc-500 italic">Major repositories and code modernization projects are available on GitHub.</p>
-    </div>
+    <div id="career" class="tab-content">
+        <div
+            class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
 
-    <div id="career" class="tab-content space-y-6">
-        <div>
-            <h4 class="font-bold text-zinc-900">Konkuk University</h4>
-            <p class="text-sm text-zinc-500 text-sm italic">Ph.D. Candidate in Aerospace Information Engineering, 20XX - Present</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-zinc-900">[Previous Exp/Univ]</h4>
-            <p class="text-sm text-zinc-500">Master/Bachelor of Engineering, 20XX - 20XX</p>
+            <!-- Item: PhD (2017 - Present) -->
+            <div
+                class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <i class="fas fa-flask text-slate-500 text-sm"></i>
+                </div>
+                <div
+                    class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                    <div class="flex items-center justify-between space-x-2 mb-1">
+                        <div class="font-bold text-slate-700">Konkuk University</div>
+                        <time class="font-mono text-xs text-slate-400">2017.08 - Present</time>
+                    </div>
+                    <div class="text-slate-500 text-sm italic mb-2">Ph.D. Candidate & Research Assistant</div>
+                    <div class="text-slate-600 text-sm leading-snug">
+                        Aerospace Information Engineering. Focus on Hypersonic CFD & Adjoint-based Shape
+                        Optimisation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item: Konkuk University (2024 - Present) -->
+            <div
+                class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <i class="fas fa-building text-slate-500 text-sm"></i>
+                </div>
+                <div
+                    class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                    <div class="flex items-center justify-between space-x-2 mb-1">
+                        <div class="font-bold text-slate-700">Konkuk University</div>
+                        <time class="font-mono text-xs text-slate-400">2024.10 - Present</time>
+                    </div>
+                    <div class="text-slate-500 text-sm italic mb-2">Researcher</div>
+                    <div class="text-slate-600 text-sm leading-snug">
+                        Aerospace Design·Airworthiness Institute, Seoul.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item: Yongbee Aerospace (2023-2024) -->
+            <div
+                class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <i class="fas fa-plane text-slate-500 text-sm"></i>
+                </div>
+                <div
+                    class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                    <div class="flex items-center justify-between space-x-2 mb-1">
+                        <div class="font-bold text-slate-700">Yongbee Aerospace Technology Inc.</div>
+                        <time class="font-mono text-xs text-slate-400">2023.03 - 2024.09</time>
+                    </div>
+                    <div class="text-slate-500 text-sm italic mb-2">Aircraft Aerodynamic Analysis</div>
+                    <div class="text-slate-600 text-sm leading-snug">
+                        Computational aerodynamic analysis for aircraft pitot tubes and other
+                        components.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item: Perigee (2019-2020) -->
+            <div
+                class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <i class="fas fa-rocket text-slate-500 text-sm"></i>
+                </div>
+                <div
+                    class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                    <div class="flex items-center justify-between space-x-2 mb-1">
+                        <div class="font-bold text-slate-700">Perigee Aerospace Inc.</div>
+                        <time class="font-mono text-xs text-slate-400">2019.05 - 2020.06</time>
+                    </div>
+                    <div class="text-slate-500 text-sm italic mb-2">Team Leader (Aerodynamics)</div>
+                    <div class="text-slate-600 text-sm leading-snug">
+                        Led the aerodynamics team for launch vehicle development.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item: MS (2014-2017) -->
+            <div
+                class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <i class="fas fa-graduation-cap text-slate-500 text-sm"></i>
+                </div>
+                <div
+                    class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                    <div class="flex items-center justify-between space-x-2 mb-1">
+                        <div class="font-bold text-slate-700">Konkuk University</div>
+                        <time class="font-mono text-xs text-slate-400">2014.09 - 2017.08</time>
+                    </div>
+                    <div class="text-slate-500 text-sm italic">M.S. in Aerospace Engineering</div>
+                </div>
+            </div>
+
+            <!-- Item: BS (2010-2014) -->
+            <div
+                class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <i class="fas fa-graduation-cap text-slate-500 text-sm"></i>
+                </div>
+                <div
+                    class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                    <div class="flex items-center justify-between space-x-2 mb-1">
+                        <div class="font-bold text-slate-700">Konkuk University</div>
+                        <time class="font-mono text-xs text-slate-400">2010.03 - 2014.08</time>
+                    </div>
+                    <div class="text-slate-500 text-sm italic">B.S. in Aerospace Engineering</div>
+                </div>
+            </div>
+
         </div>
     </div>
-
     <div id="publications" class="tab-content">
-        <ul class="space-y-4 text-sm">
-            <li class="border-l-2 border-zinc-200 pl-4">
-                <p class="font-semibold">[Title of Your Research Paper/Book]</p>
-                <p class="text-zinc-500">Journal Name / Publisher, 202X</p>
-            </li>
-        </ul>
-    </div>
+        <div class="space-y-6">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Publications</h2>
 
-    <div id="photos" class="tab-content text-center py-10">
-        <p class="text-zinc-400 text-sm">Gallery coming soon...</p>
+            <!-- International Conferences -->
+            <div class="mb-6">
+                <h3 class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <i class="fas fa-globe"></i> International Conferences
+                </h3>
+                <div class="space-y-3">
+                    <!-- APISAT 2025 -->
+                    <div
+                        class="group p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 hover:border-indigo-300 transition-all">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-indigo-600 transition-colors">
+                                    <a href="papers/APISAT2025_S8CP.pdf" target="_blank"
+                                        class="hover:underline">Computational Analysis-Based Noise Model for Urban Air
+                                        Mobility Considering Social Acceptance</a>
+                                </h4>
+                                <p class="text-xs text-slate-500 mb-2"><strong>S. Ryu</strong>, D. Choi, J. Kwon, S. Kim
+                                </p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-600">Asia-Pacific
+                                        International Symposium on Aerospace Technology (APISAT)</span>
+                                    <span>2025.11</span>
+                                </div>
+                            </div>
+                            <a href="papers/APISAT2025_S8CP.pdf" target="_blank"
+                                class="text-slate-300 hover:text-indigo-600 transition-colors">
+                                <i class="fas fa-file-pdf"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- ACSMO 2022 -->
+                    <div
+                        class="group p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 hover:border-indigo-300 transition-all">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-indigo-600 transition-colors">
+                                    <a href="papers/ACSMO2022.pdf" target="_blank" class="hover:underline">Study of
+                                        Thermal-Fluid Analysis of Pitot-tube</a>
+                                </h4>
+                                <p class="text-xs text-slate-500 mb-2"><strong>S. Ryu</strong>, J. Lee, N. Juliawhan,
+                                    T.H. Lee, Y.H. Byun, S. Kim</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-600">Asian Congress
+                                        of Structural and Multidisciplinary Optimization (ACSMO)</span>
+                                    <span>2022.05</span>
+                                </div>
+                            </div>
+                            <a href="papers/ACSMO2022.pdf" target="_blank"
+                                class="text-slate-300 hover:text-indigo-600 transition-colors">
+                                <i class="fas fa-file-pdf"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domestic Journals -->
+            <div class="mb-6">
+                <h3 class="text-xs font-bold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <i class="fas fa-book"></i> Domestic Journals (국내저널)
+                </h3>
+                <div class="space-y-3">
+                    <div
+                        class="group p-4 rounded-xl bg-green-50/50 border border-green-100 hover:border-green-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-green-700 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10000153"
+                                        target="_blank" class="hover:underline">고속 비행체 공기흡입관 구조설계를 위한 효율적 유체-열 통합해석
+                                        연구</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">An Efficient Fluid-Thermal Integrated
+                                    Analysis for Air-Intake Structure Design of High-Speed Vehicle</p>
+                                <p class="text-xs text-slate-500 mb-2">전형근, <strong>류세아</strong><sup
+                                        class="text-slate-400">*</sup>, 이재우, 김상호</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-green-100 text-green-700">한국항공운항학회지 Vol.23
+                                        No.3</span>
+                                    <span>2015.09</span>
+                                    <span class="text-slate-300">pp. 8-17</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10000153" target="_blank"
+                                class="text-slate-300 hover:text-green-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domestic Conferences -->
+            <div class="mb-6">
+                <h3 class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <i class="fas fa-file-alt"></i> Domestic Conferences (국내학술대회)
+                </h3>
+                <div class="space-y-3">
+
+                    <!-- 2025 KSAS-JSASS -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="papers/KSAS2025_2511009.pdf" target="_blank" class="hover:underline">지면효과를
+                                        고려한 eVTOL 프로펠러의 공력음향 해석</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Aeroacoustic Analysis of eVTOL
+                                    Propeller in Ground Effect</p>
+                                <p class="text-xs text-slate-500 mb-2"><strong>류세아</strong>, 최다희, 정형석, 김상호</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한일항공우주학회 공동심포지엄
+                                        (KSAS-JSASS)</span>
+                                    <span>2025.11</span>
+                                </div>
+                            </div>
+                            <a href="papers/KSAS2025_2511009.pdf" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-file-pdf"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2024 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12061274"
+                                        target="_blank" class="hover:underline">UAM 회랑 평가를 위한 소음 연구 개요</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Overview of Noise Research for UAM
+                                    Corridor Evaluation</p>
+                                <p class="text-xs text-slate-500 mb-2">최다희, <strong>류세아</strong>, 김용희, 김상호</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국항공우주학회
+                                        추계학술대회</span>
+                                    <span>2024.11</span>
+                                    <span class="text-slate-300">pp. 589-590</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12061274" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2022 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11182285"
+                                        target="_blank" class="hover:underline">소음 측정 시험을 위한 아음속 풍동 내 흡음재 장착 효과에 대한
+                                        연구</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">A Study on the Effect of Installing
+                                    Sound Absorbing Materials in Subsonic Wind Tunnels for Noise Measurement Tests</p>
+                                <p class="text-xs text-slate-500 mb-2">이주현, 최다희, 배재욱, <strong>류세아</strong>, 김상호</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국항공우주학회
+                                        추계학술대회</span>
+                                    <span>2022.11</span>
+                                    <span class="text-slate-300">pp. 887-888</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11182285" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2021 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10613754"
+                                        target="_blank" class="hover:underline">자세각에 따른 멀티콥터용 프로펠러의 공력소음 해석</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Aerodynamic Noise Analysis of
+                                    Multicopter Propellers According to Attitude Angle</p>
+                                <p class="text-xs text-slate-500 mb-2">이주현, <strong>류세아</strong>, 정형석, 김상호 외</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국항공우주학회
+                                        춘계학술대회</span>
+                                    <span>2021.07</span>
+                                    <span class="text-slate-300">pp. 294-295</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10613754" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2020 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10526248"
+                                        target="_blank" class="hover:underline">도심항공교통 디지털트윈을 위한 공력 데이터베이스 구축 개요</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Overview of Aerodynamic Database for
+                                    Urban Air Mobility Digital Twin</p>
+                                <p class="text-xs text-slate-500 mb-2"><strong>류세아</strong>, 최다희, 정형석, 김상호, 성상경</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국항공우주학회
+                                        추계학술대회</span>
+                                    <span>2020.11</span>
+                                    <span class="text-slate-300">pp. 687-688</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10526248" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2017 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07163446"
+                                        target="_blank" class="hover:underline">초음속 노즐의 jet vane 장착에 따른 추력 특성 변화 연구</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">A Study on Thrust Characteristics of
+                                    Supersonic Nozzle with Jet Vane</p>
+                                <p class="text-xs text-slate-500 mb-2"><strong>류세아</strong><sup
+                                        class="text-slate-400">*</sup>, 김상호, 박기순, 이대연, 이동희</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국전산유체공학회
+                                        춘계학술대회</span>
+                                    <span>2017.05</span>
+                                    <span class="text-slate-300">pp. 122-123</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07163446" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2016 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="papers/2016_군사과학기술학회.pdf" target="_blank" class="hover:underline">고속 비행 유도탄
+                                        공기흡입관 구조의 유체-열-구조 통합해석 및 내열구조 최적화</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Fluid-Thermal-Structural Integrated
+                                    Analysis and Heat-Resistant Structure Optimisation of High-Speed Missile Air Intake
+                                </p>
+                                <p class="text-xs text-slate-500 mb-2"><strong>류세아</strong><sup
+                                        class="text-slate-400">*</sup>, 전형근, 김상호</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">군사과학기술학회
+                                        추계학술대회</span>
+                                    <span>2016.11</span>
+                                </div>
+                            </div>
+                            <a href="papers/2016_군사과학기술학회.pdf" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-file-pdf"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2015 KSAS -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE06768638"
+                                        target="_blank" class="hover:underline">극초음속 비행체 엔진 흡입관 구조 설계/해석</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">The Simultaneous Structural Design and
+                                    Analysis of the High Supersonic Vehicle Engine Inlet</p>
+                                <p class="text-xs text-slate-500 mb-2">정상영, 김상호, 이재우, 전형근, <strong>류세아</strong><sup
+                                        class="text-slate-400">*</sup></p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국항공우주학회
+                                        추계학술대회</span>
+                                    <span>2015.11</span>
+                                    <span class="text-slate-300">pp. 141-144</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE06768638" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2014 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE06294873"
+                                        target="_blank" class="hover:underline">고속 비행체 공기흡입관 설계를 위한 저정밀도 공력-열-구조
+                                        연계해석</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Low Fidelity
+                                    Aerodynamic-Thermal-Structure Coupled Analysis for High Speed Air Vehicle Intake</p>
+                                <p class="text-xs text-slate-500 mb-2"><strong>류세아</strong><sup
+                                        class="text-slate-400">*</sup>, 전형근, 황인섭, 이재우, 김상호</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국항공우주학회
+                                        추계학술대회</span>
+                                    <span>2014.11</span>
+                                    <span class="text-slate-300">pp. 1625-1628</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE06294873" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2013 EDISON -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE02238373"
+                                        target="_blank" class="hover:underline">천이현상을 고려한 익형유동의 공력특성 비교 연구</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">A Comparative Study of Airfoil Flow
+                                    Considering Transition Phenomenon</p>
+                                <p class="text-xs text-slate-500 mb-2">손미소, <strong>류세아</strong><sup
+                                        class="text-slate-400">*</sup>, 박수형</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">EDISON SW 활용 경진대회
+                                        논문집</span>
+                                    <span>2013</span>
+                                    <span class="text-slate-300">pp. 360-364</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE02238373" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2011 -->
+                    <div
+                        class="group p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE01620731"
+                                        target="_blank" class="hover:underline">의사결정기법을 이용한 2인승 경항공기 요구도 분석 및 최적대안형상
+                                        선정</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Requirement Analysis and Optimal
+                                    Configuration Selection for 2-Seater Light Aircraft using Decision Making Method</p>
+                                <p class="text-xs text-slate-500 mb-2">배보영, <strong>류세아</strong><sup
+                                        class="text-slate-400">*</sup>, 이재우 외</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">한국항공우주학회
+                                        춘계학술대회</span>
+                                    <span>2011.04</span>
+                                </div>
+                            </div>
+                            <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE01620731" target="_blank"
+                                class="text-slate-300 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Other Publications -->
+            <div>
+                <h3 class="text-xs font-bold text-amber-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <i class="fas fa-folder-open"></i> Other Publications (기타 발간자료)
+                </h3>
+                <div class="space-y-3">
+                    <div
+                        class="group p-4 rounded-xl bg-amber-50/50 border border-amber-100 hover:border-amber-300 transition-all hover:shadow-md">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <h4
+                                    class="font-bold text-slate-800 text-sm mb-1 group-hover:text-amber-700 transition-colors">
+                                    <a href="https://www.humanrights.go.kr/base/board/read?boardManagementNo=16&boardNo=7607178"
+                                        target="_blank" class="hover:underline">트랜스젠더 성별정정 기준에 관한 청문회: 대법원 예규의 성전환수술 요건을
+                                        중심으로</a>
+                                </h4>
+                                <p class="text-[10px] text-slate-400 mb-1 italic">Hearing on Transgender Gender
+                                    Correction Standards: Focusing on Sex Reassignment Surgery Requirements in Supreme
+                                    Court Regulations</p>
+                                <p class="text-xs text-slate-500 mb-2">최신영, <strong>류세아</strong>, 한상희, 이은실, Victor
+                                    Madrigal-Borloz</p>
+                                <div class="flex items-center gap-3 text-xs text-slate-400">
+                                    <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">국가인권위원회
+                                        연구보고서</span>
+                                    <span>2022.01</span>
+                                    <span class="text-slate-300">167 pages</span>
+                                </div>
+                            </div>
+                            <a href="https://www.humanrights.go.kr/base/board/read?boardManagementNo=16&boardNo=7607178"
+                                target="_blank" class="text-slate-300 hover:text-amber-600 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note -->
+            <p class="text-[10px] text-slate-400 mt-6 pt-4 border-t border-slate-100 italic">
+                <sup>*</sup> Some publications prior to 2020 were published under my former name.
+            </p>
         </div>
+    </div>
+    <div id="resources" class="tab-content">
+        <div class="p-10 border border-dashed border-slate-300 rounded-xl bg-slate-50 text-center">
+            <p class="text-slate-500 mb-2 font-medium">Repository connection pending.</p>
+            <p class="text-xs text-slate-400">
+                Detailed resources will be available once the GitHub repository is connected.
+            </p>
+        </div>
+    </div>
+    <div id="photos" class="tab-content text-center py-10">
+        <p class="text-slate-400">Visualizing the research journey.</p>
+    </div>
+    </main>
 
-    <footer class="mt-32 pt-8 border-t border-zinc-100 text-[10px] text-zinc-400 uppercase tracking-widest">
-        <p>© 2026 yanagisea. Aerospace & Numerical Analysis. Last updated: Jan 2026.</p>
+    <footer class="mt-32 pt-8 border-t border-slate-200 text-center">
+        <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+            © 2026 yanagisea · Aerospace Researcher
+        </p>
     </footer>
+    </div>
 
     <script>
         function showTab(event, tabId) {
             const contents = document.querySelectorAll('.tab-content');
             const buttons = document.querySelectorAll('.tab-btn');
-            
+
             contents.forEach(content => content.classList.remove('active'));
             buttons.forEach(btn => btn.classList.remove('active'));
-            
+
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
     </script>
 </body>
+
 </html>
