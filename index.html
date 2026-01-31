@@ -12,17 +12,31 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1e293b;
+            background-color: #171c24;
             color: #e2e8f0;
             font-size: 16px;
         }
 
         /* Font size scaling */
-        .text-xs { font-size: 0.8125rem !important; }
-        .text-sm { font-size: 0.9375rem !important; }
-        .text-\[10px\] { font-size: 0.75rem !important; }
-        .text-\[15px\] { font-size: 1rem !important; }
-        .text-3xl { font-size: 2rem !important; }
+        .text-xs {
+            font-size: 0.8125rem !important;
+        }
+
+        .text-sm {
+            font-size: 0.9375rem !important;
+        }
+
+        .text-\[10px\] {
+            font-size: 0.75rem !important;
+        }
+
+        .text-\[15px\] {
+            font-size: 1rem !important;
+        }
+
+        .text-3xl {
+            font-size: 2rem !important;
+        }
 
         .serif {
             font-family: 'Noto Serif KR', serif;
@@ -36,12 +50,12 @@
         .tab-btn {
             transition: 0.2s;
             border-bottom: 2px solid transparent;
-            color: #94a3b8;
+            color: #8b9eb3;
             font-weight: 500;
         }
 
         .tab-btn.active {
-            border-bottom-color: #38bdf8;
+            border-bottom-color: #22d3ee;
             color: #f1f5f9;
             font-weight: 700;
         }
@@ -66,73 +80,331 @@
         }
 
         .profile-card {
-            background: linear-gradient(135deg, #475569 0%, #334155 100%);
-            border: 1px solid #64748b;
+            background: linear-gradient(135deg, #1e3a5f 0%, #1a2744 100%);
+            border: 1px solid #2d4a6f;
             border-radius: 12px;
-            box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.5);
         }
 
-        .profile-card h1 { color: #f1f5f9 !important; }
-        .profile-card p { color: #e2e8f0 !important; }
-        .profile-card .text-slate-400 { color: #cbd5e1 !important; }
-        .profile-card .text-slate-500 { color: #cbd5e1 !important; }
-        .profile-card .text-slate-600 { color: #e2e8f0 !important; }
-        .profile-card .text-zinc-400 { color: #a1a1aa !important; }
-        .profile-card a.text-slate-400 { color: #cbd5e1 !important; }
-        .profile-card a:hover { color: #f1f5f9 !important; }
+        .profile-card h1 {
+            color: #f1f5f9 !important;
+        }
+
+        .profile-card p {
+            color: #e2e8f0 !important;
+        }
+
+        .profile-card .text-slate-400 {
+            color: #a5c3e8 !important;
+        }
+
+        .profile-card .text-slate-500 {
+            color: #a5c3e8 !important;
+        }
+
+        .profile-card .text-slate-600 {
+            color: #e2e8f0 !important;
+        }
+
+        .profile-card .text-zinc-400 {
+            color: #9cb4cf !important;
+        }
+
+        .profile-card a.text-slate-400 {
+            color: #a5c3e8 !important;
+        }
+
+        .profile-card a:hover {
+            color: #f1f5f9 !important;
+        }
+
         /* Dark theme overrides */
-        .bg-white { background-color: #334155 !important; }
-        .bg-slate-50 { background-color: #334155 !important; }
-        .bg-slate-100 { background-color: #475569 !important; }
-        .border-slate-100 { border-color: #475569 !important; }
-        .border-slate-200 { border-color: #64748b !important; }
-        .text-slate-900 { color: #f1f5f9 !important; }
-        .text-slate-800 { color: #e2e8f0 !important; }
-        .text-slate-700 { color: #cbd5e1 !important; }
-        .text-slate-600 { color: #94a3b8 !important; }
-        .text-slate-500 { color: #94a3b8 !important; }
-        .text-slate-400 { color: #94a3b8 !important; }
-        .hover\:text-slate-900:hover { color: #f1f5f9 !important; }
-        .before\:via-slate-300::before { --tw-gradient-via: #64748b !important; }
+        .bg-white {
+            background-color: #1e2a3a !important;
+        }
+
+        .bg-slate-50 {
+            background-color: #1e2a3a !important;
+        }
+
+        .bg-slate-100 {
+            background-color: #243447 !important;
+        }
+
+        .border-slate-100 {
+            border-color: #2d4259 !important;
+        }
+
+        .border-slate-200 {
+            border-color: #3a536e !important;
+        }
+
+        .text-slate-900 {
+            color: #f1f5f9 !important;
+        }
+
+        .text-slate-800 {
+            color: #e2e8f0 !important;
+        }
+
+        .text-slate-700 {
+            color: #c5d4e4 !important;
+        }
+
+        .text-slate-600 {
+            color: #8fa4bc !important;
+        }
+
+        .text-slate-500 {
+            color: #8fa4bc !important;
+        }
+
+        .text-slate-400 {
+            color: #8fa4bc !important;
+        }
+
+        .hover\:text-slate-900:hover {
+            color: #f1f5f9 !important;
+        }
+
+        .before\:via-slate-300::before {
+            --tw-gradient-via: #3a536e !important;
+        }
 
         /* Link colors for dark mode */
-        a.text-blue-600 { color: #60a5fa !important; }
-        a:hover { color: #93c5fd !important; }
-        .text-indigo-600 { color: #a5b4fc !important; }
-        .text-green-600 { color: #86efac !important; }
-        .text-green-700 { color: #4ade80 !important; }
-        .text-amber-600 { color: #fcd34d !important; }
+        a.text-blue-600 {
+            color: #67b8f7 !important;
+        }
+
+        a:hover {
+            color: #93d5ff !important;
+        }
+
+        .text-indigo-600 {
+            color: #93b4ff !important;
+        }
+
+        .text-green-600 {
+            color: #6ee7b7 !important;
+        }
+
+        .text-green-700 {
+            color: #34d399 !important;
+        }
+
+        .text-amber-600 {
+            color: #fbbf24 !important;
+        }
+
+        /* Accent colors for variation */
+        .border-indigo-500 {
+            border-color: #6366f1 !important;
+        }
+
+        .text-indigo-500 {
+            color: #818cf8 !important;
+        }
+
+        .text-cyan-500 {
+            color: #22d3ee !important;
+        }
+
+        .text-teal-500 {
+            color: #14b8a6 !important;
+        }
+
+        /* Section accent colors */
+        .section-cyan h2 {
+            color: #22d3ee !important;
+        }
+
+        .section-cyan .section-card {
+            border-left: 3px solid #22d3ee;
+        }
+
+        .section-teal h2 {
+            color: #2dd4bf !important;
+        }
+
+        .section-teal .section-card {
+            border-left: 3px solid #2dd4bf;
+        }
+
+        .section-violet h2 {
+            color: #a78bfa !important;
+        }
+
+        .section-violet .section-card {
+            border-left: 3px solid #a78bfa;
+        }
+
+        .section-rose h2 {
+            color: #fb7185 !important;
+        }
+
+        .section-rose .section-card {
+            border-left: 3px solid #fb7185;
+        }
+
+        .section-amber h2 {
+            color: #fbbf24 !important;
+        }
+
+        .section-amber .section-card {
+            border-left: 3px solid #fbbf24;
+        }
+
+        .section-emerald h2 {
+            color: #34d399 !important;
+        }
+
+        .section-emerald .section-card {
+            border-left: 3px solid #34d399;
+        }
+
+        .section-sky h2 {
+            color: #38bdf8 !important;
+        }
+
+        .section-sky .section-card {
+            border-left: 3px solid #38bdf8;
+        }
+
+        /* Category headers with color indicators */
+        .category-header {
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 70%;
+            border-radius: 2px;
+        }
+
+        .category-aero::before {
+            background: #22d3ee;
+        }
+
+        .category-hyper::before {
+            background: #f97316;
+        }
+
+        .category-ice::before {
+            background: #60a5fa;
+        }
+
+        .category-noise::before {
+            background: #a78bfa;
+        }
+
+        .category-standard::before {
+            background: #fbbf24;
+        }
+
+        .category-other::before {
+            background: #94a3b8;
+        }
+
+        .category-compute::before {
+            background: #34d399;
+        }
 
         /* Publication card backgrounds for dark mode */
-        .bg-indigo-50\/50 { background-color: rgba(99, 102, 241, 0.15) !important; }
-        .bg-green-50\/50 { background-color: rgba(34, 197, 94, 0.15) !important; }
-        .bg-amber-50\/30 { background-color: rgba(245, 158, 11, 0.15) !important; }
-        .bg-indigo-50 { background-color: rgba(99, 102, 241, 0.15) !important; }
-        .bg-green-50 { background-color: rgba(34, 197, 94, 0.15) !important; }
-        .bg-amber-50 { background-color: rgba(245, 158, 11, 0.15) !important; }
+        .bg-indigo-50\/50 {
+            background-color: rgba(79, 122, 200, 0.12) !important;
+        }
+
+        .bg-green-50\/50 {
+            background-color: rgba(16, 185, 129, 0.12) !important;
+        }
+
+        .bg-amber-50\/30 {
+            background-color: rgba(217, 119, 6, 0.12) !important;
+        }
+
+        .bg-indigo-50 {
+            background-color: rgba(79, 122, 200, 0.12) !important;
+        }
+
+        .bg-green-50 {
+            background-color: rgba(16, 185, 129, 0.12) !important;
+        }
+
+        .bg-amber-50 {
+            background-color: rgba(217, 119, 6, 0.12) !important;
+        }
 
         /* Publication card borders for dark mode */
-        .border-indigo-100 { border-color: rgba(129, 140, 248, 0.4) !important; }
-        .border-green-100 { border-color: rgba(74, 222, 128, 0.4) !important; }
-        .border-amber-100 { border-color: rgba(251, 191, 36, 0.4) !important; }
-        .hover\:border-indigo-300:hover { border-color: rgba(165, 180, 252, 0.6) !important; }
-        .hover\:border-green-300:hover { border-color: rgba(134, 239, 172, 0.6) !important; }
-        .hover\:border-slate-300:hover { border-color: #64748b !important; }
+        .border-indigo-100 {
+            border-color: rgba(99, 149, 230, 0.35) !important;
+        }
+
+        .border-green-100 {
+            border-color: rgba(52, 211, 153, 0.35) !important;
+        }
+
+        .border-amber-100 {
+            border-color: rgba(251, 191, 36, 0.35) !important;
+        }
+
+        .hover\:border-indigo-300:hover {
+            border-color: rgba(129, 170, 243, 0.6) !important;
+        }
+
+        .hover\:border-green-300:hover {
+            border-color: rgba(110, 231, 183, 0.6) !important;
+        }
+
+        .hover\:border-slate-300:hover {
+            border-color: #64748b !important;
+        }
 
         /* Publication badges for dark mode */
-        .bg-indigo-100 { background-color: rgba(129, 140, 248, 0.25) !important; }
-        .bg-green-100 { background-color: rgba(74, 222, 128, 0.25) !important; }
-        .bg-amber-100 { background-color: rgba(251, 191, 36, 0.25) !important; }
-        .text-indigo-600.rounded-full, span.text-indigo-600 { color: #c7d2fe !important; }
-        .text-green-700.rounded-full, span.text-green-700 { color: #bbf7d0 !important; }
+        .bg-indigo-100 {
+            background-color: rgba(129, 140, 248, 0.25) !important;
+        }
+
+        .bg-green-100 {
+            background-color: rgba(74, 222, 128, 0.25) !important;
+        }
+
+        .bg-amber-100 {
+            background-color: rgba(251, 191, 36, 0.25) !important;
+        }
+
+        .text-indigo-600.rounded-full,
+        span.text-indigo-600 {
+            color: #c7d2fe !important;
+        }
+
+        .text-green-700.rounded-full,
+        span.text-green-700 {
+            color: #bbf7d0 !important;
+        }
 
         /* Text colors for publication content */
-        .group-hover\:text-indigo-600:hover { color: #a5b4fc !important; }
-        .group-hover\:text-green-700:hover { color: #86efac !important; }
-        .group-hover\:text-blue-600:hover { color: #93c5fd !important; }
+        .group-hover\:text-indigo-600:hover {
+            color: #a5b4fc !important;
+        }
+
+        .group-hover\:text-green-700:hover {
+            color: #86efac !important;
+        }
+
+        .group-hover\:text-blue-600:hover {
+            color: #93c5fd !important;
+        }
 
         /* Domestic conference section header */
-        h3.text-slate-600 { color: #94a3b8 !important; }
+        h3.text-slate-600 {
+            color: #94a3b8 !important;
+        }
     </style>
 </head>
 
@@ -148,6 +420,16 @@
 
                 <div class="text-center md:text-left flex-1">
                     <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 mb-1">Sea Ryu</h1>
+                    <p class="text-cyan-400 text-sm font-medium mb-2 italic">"CFD · Aerodynamic Optimisation · Noise ·
+                        Standardisation & Policy"</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-3">
+                        <span
+                            class="bg-blue-900/50 px-3 py-1 rounded-full text-blue-200 border border-blue-700 text-xs">Aerospace
+                            Engineering</span>
+                        <span
+                            class="bg-amber-900/50 px-3 py-1 rounded-full text-amber-200 border border-amber-700 text-xs">Standardisation
+                            & Policy</span>
+                    </div>
                     <p class="serif text-sm text-slate-500 mb-1 tracking-wide">
                         류세아 · <ruby>柳<rt>やなぎ</rt>世<rt>せ</rt>亜<rt>あ</rt></ruby>（リュセア）
                     </p>
@@ -178,7 +460,7 @@
         </header>
 
         <nav
-            class="flex justify-center gap-2 md:gap-4 lg:gap-6 border-b border-slate-200 mb-10 text-xs md:text-sm flex-wrap">
+            class="flex justify-center gap-2 md:gap-4 lg:gap-6 border-b border-slate-200 mb-10 text-xs md:text-sm flex-wrap items-center">
             <button class="tab-btn pb-3 active" onclick="showTab(event, 'home')">Home</button>
             <button class="tab-btn pb-3" onclick="showTab(event, 'research')">Research</button>
             <button class="tab-btn pb-3" onclick="showTab(event, 'awards')">Awards</button>
@@ -187,14 +469,44 @@
             <button class="tab-btn pb-3" onclick="showTab(event, 'publications')">Publications</button>
             <button class="tab-btn pb-3" onclick="showTab(event, 'resources')">Resources</button>
             <button class="tab-btn pb-3" onclick="showTab(event, 'photos')">Photos</button>
+            <div class="relative">
+                <button class="tab-btn pb-3 more-btn" onclick="toggleMoreMenu(event)">···</button>
+                <div id="more-menu" class="hidden absolute right-0 top-full mt-1 bg-slate-800 border border-slate-600 rounded-lg shadow-xl z-50 min-w-[120px]">
+                    <button class="tab-btn w-full text-left px-4 py-2 hover:bg-slate-700 rounded-t-lg" onclick="showTabFromMore(event, 'politics')">Politics</button>
+                    <button class="tab-btn w-full text-left px-4 py-2 hover:bg-slate-700 rounded-b-lg" onclick="showTabFromMore(event, 'news')">News</button>
+                </div>
+            </div>
         </nav>
 
         <main>
             <div id="home" class="tab-content active space-y-12">
+
+                <!-- Quick Stats -->
                 <section>
-                    <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Biography</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
+                            <div id="stat-projects" class="text-2xl font-bold text-cyan-400">-</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Projects</div>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
+                            <div id="stat-publications" class="text-2xl font-bold text-violet-400">-</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Publications</div>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
+                            <div id="stat-years" class="text-2xl font-bold text-emerald-400">-</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Years Research</div>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
+                            <div id="stat-awards" class="text-2xl font-bold text-amber-400">-</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Awards</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-cyan">
+                    <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Biography</h2>
                     <p class="text-slate-700 leading-relaxed text-[15px]">
-                        I am focusing on <strong>Computational Fluid Dynamics(CFD)</strong>.
+                        Focusing on <strong>Computational Fluid Dynamics(CFD)</strong>.
                         My research involves aerodynamic analysis and shape optimisation for UAM and flight vehicles,
                         utilising <strong>Adjoint methods</strong> to improve design efficiency.
                         My background includes <strong>aircraft system design</strong> and aerodynamic analysis for
@@ -202,16 +514,23 @@
                     </p>
                 </section>
 
-                <section>
-                    <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Core Expertise</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <section class="section-teal">
+                    <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Research Interests</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                         <div class="p-4 bg-white border border-slate-100 rounded-lg">
-                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Research</h4>
-                            <p class="text-slate-700 font-medium">UAM, Launch Vehicles, Aeroacoustics</p>
+                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Computational Methods</h4>
+                            <p class="text-slate-700 font-medium">CFD, Adjoint Based Optimisation, Aeroacoustics,
+                                Rarefied Gas Dynamics, Quantum Computing
+                                Algorithm</p>
                         </div>
                         <div class="p-4 bg-white border border-slate-100 rounded-lg">
-                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Methodology</h4>
-                            <p class="text-slate-700 font-medium italic">CFD, Adjoint Optimisation, Aeroacoustics</p>
+                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Aerodynamics</h4>
+                            <p class="text-slate-700 font-medium">Hypersonic Flight Vehicle, Aerodynamic Design &
+                                Optimisation</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-lg">
+                            <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Applications</h4>
+                            <p class="text-slate-700 font-medium">UAM, Launch Vehicles, Aeroacoustics, Anti/De-icing</p>
                         </div>
                         <div class="p-4 bg-white border border-slate-100 rounded-lg">
                             <h4 class="font-bold text-slate-400 text-xs mb-2 uppercase">Languages</h4>
@@ -222,42 +541,58 @@
             </div>
 
             <div id="research" class="tab-content">
-                <div class="space-y-8">
-                    <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Research Experience
+                <div class="space-y-8 section-violet">
+                    <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Research Experience
                     </h2>
 
                     <!-- Aerodynamics -->
                     <div class="mb-8">
-                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Project on
+                        <h3
+                            class="category-header category-aero font-bold text-cyan-400 text-sm mb-4 border-b border-slate-100 pb-2">
+                            Project on
                             Aerodynamics</h3>
                         <div class="grid gap-4">
                             <div class="p-5 bg-white border border-slate-100 rounded-xl">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <div class="mb-3">
                                     <h4 class="font-bold text-slate-800 text-sm">Fighter Backward Body Analysis</h4>
-                                    <div class="text-xs text-slate-400 font-mono">Korea Aerospace Industries</div>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">Korea Aerospace Industries</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2017-2018</span>
+                                    </div>
                                 </div>
                                 <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Korean Fighter Program (KF-X/KF-21) Development Project</li>
                                     <li>Generate Aerodynamic DB of Various Backward Body Configuration</li>
                                     <li>Capture of Drag induced by jet plume and Nozzles</li>
                                 </ul>
                             </div>
                             <div class="p-5 bg-white border border-slate-100 rounded-xl">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-800 text-sm">LSA Flap Analysis</h4>
-                                    <div class="text-xs text-slate-400 font-mono">Ministry of Land, Infrastructure and
-                                        Transport</div>
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Development of Sports-Class Light
+                                        Aircraft</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">KAIA / MOLIT</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2010-2014</span>
+                                    </div>
                                 </div>
                                 <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
-                                    <li>2D and 3D Flap analysis about Light Sport Aircraft</li>
+                                    <li>2D and 3D Flap analysis about Light Sport Aircraft (KLA-100)</li>
                                     <li>Generate of Aerodynamics DB</li>
                                 </ul>
                             </div>
                             <div class="p-5 bg-white border border-slate-100 rounded-xl">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-800 text-sm">Aircraft Nonlinear Aerodynamics</h4>
-                                    <div class="text-xs text-slate-400 font-mono">Korea Aerospace Industries</div>
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Fighter Nonlinear Aerodynamics</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">Korea Aerospace Industries</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2017-2018</span>
+                                    </div>
                                 </div>
                                 <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Korean Fighter Program (KF-X/KF-21) Development Project</li>
                                     <li>Nonlinear Aerodynamic analysis at High AOA and AOS</li>
                                     <li>Figure out Aerodynamic Coefficient of Delta Wing and fighters</li>
                                 </ul>
@@ -267,29 +602,42 @@
 
                     <!-- Super/Hypersonic -->
                     <div class="mb-8">
-                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Project on
+                        <h3
+                            class="category-header category-hyper font-bold text-orange-400 text-sm mb-4 border-b border-slate-100 pb-2">
+                            Project on
                             Super/Hypersonic</h3>
                         <div class="grid gap-4">
                             <div class="p-5 bg-white border border-slate-100 rounded-xl">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <div class="mb-3">
                                     <h4 class="font-bold text-slate-800 text-sm">Fluid-Thermal Analysis of Hypersonic
                                         Air Intake</h4>
-                                    <div class="text-xs text-slate-400 font-mono">Agency for Defence Development</div>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">ADD</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2013-2015</span>
+                                    </div>
                                 </div>
                                 <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>ADD Basic Research Project</li>
                                     <li>Aerodynamic Analysis of Hypersonic Air Intake</li>
                                     <li>Analysis of Fluid-Thermal Interaction and Figure out the optimum design</li>
                                     <li>Development of Aero-Thermal Analysis Tool</li>
                                 </ul>
                             </div>
                             <div class="p-5 bg-white border border-slate-100 rounded-xl">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-800 text-sm">Jet Vane Analysis</h4>
-                                    <div class="text-xs text-slate-400 font-mono">LIG Nex1</div>
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Jet Vane Analysis & Embedded Training
+                                    </h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">LIG Nex1</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2016-2018</span>
+                                    </div>
                                 </div>
                                 <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
                                     <li>Analysis of Jet Vane</li>
                                     <li>Force and Momentum analysis due to Vane deflections</li>
+                                    <li>Development of embedded training program for airborne weapons</li>
                                 </ul>
                             </div>
                         </div>
@@ -297,15 +645,23 @@
 
                     <!-- Icing -->
                     <div class="mb-8">
-                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Project on
+                        <h3
+                            class="category-header category-ice font-bold text-sky-400 text-sm mb-4 border-b border-slate-100 pb-2">
+                            Project on
                             Icing</h3>
                         <div class="grid gap-4">
                             <div class="p-5 bg-white border border-slate-100 rounded-xl">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-800 text-sm">Icing around Pitot-Tube</h4>
-                                    <div class="text-xs text-slate-400 font-mono">YONGBEEAT Co. Ltd.</div>
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Aircraft Pitot-Static Tube Localisation
+                                    </h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">DAPA / YONGBEEAT</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2021-2024</span>
+                                    </div>
                                 </div>
                                 <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Weapon System Component Localisation Development Support Project</li>
                                     <li>Comparison of aerodynamic analysis with theoretical values (pressure, flow
                                         speed)</li>
                                     <li>Validation against wind tunnel test results</li>
@@ -316,9 +672,144 @@
                         </div>
                     </div>
 
+                    <!-- Noise -->
+                    <div class="mb-8">
+                        <h3
+                            class="category-header category-noise font-bold text-violet-400 text-sm mb-4 border-b border-slate-100 pb-2">
+                            Project on
+                            Noise</h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Risk-Based UAM Flight Procedure &
+                                        Corridor Design Automation Technology Development</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">KAIA / MOLIT</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2024 - Present</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Part of K-UAM Safe Operation Core Technology Development Project</li>
+                                    <li>UAM Computational Aeroacoustic Analysis</li>
+                                    <li>Noise Prediction, Evaluation and Standardisation</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">UAM Cluster Development Research
+                                        Planning</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">Ulsan Metropolitan City</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2024 - Present</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Part of K-UAM Safe Operation Core Technology Development Project</li>
+                                    <li>Urban Air Mobility Operation Concept Study for Ulsan City</li>
+                                    <li>Development of Concept of Operations (ConOps)</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Drone Noise Data Management for
+                                        Visualisation</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">KISTI</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2025 - Present</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Drone Noise Measurement and Evaluation</li>
+                                    <li>Computational Aeroacoustic Analysis</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Standardisation of Civil-Military
+                                        Dual-Use Drone Noise Rating and Test Evaluation Procedures</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">DTaQ</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2022-2024</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Civil/Military Dual-Use Drone Noise Rating and Test Evaluation Procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Standardisation & Policy -->
+                    <div class="mb-8">
+                        <h3
+                            class="category-header category-standard font-bold text-amber-400 text-sm mb-4 border-b border-slate-100 pb-2">
+                            Standardisation
+                            & Policy</h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">UAM Cluster Development Research
+                                        Planning</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">Ulsan Metropolitan City</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2024 - Present</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Urban Air Mobility Operation Concept Study for Ulsan City</li>
+                                    <li>Development of Concept of Operations (ConOps)</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Standardisation of Civil-Military
+                                        Dual-Use Drone Noise Rating and Test Evaluation Procedures</h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-500">DTaQ</span>
+                                        <span class="text-xs text-slate-300">•</span>
+                                        <span class="text-xs text-slate-400 font-mono">2022-2024</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Civil/Military Dual-Use Drone Noise Rating and Test Evaluation Procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other -->
+                    <div class="mb-8">
+                        <h3
+                            class="category-header category-other font-bold text-slate-400 text-sm mb-4 border-b border-slate-100 pb-2">
+                            Other Projects
+                        </h3>
+                        <div class="grid gap-4">
+                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-slate-800 text-sm">Industrial UAV Professional Training
+                                    </h4>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-xs text-slate-400 font-mono">2018 - 2020</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                                    <li>Phase 1 & 2: Professional personnel training for industrial unmanned aerial
+                                        vehicles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Computing & Optimization -->
                     <div class="mb-8">
-                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Research on
+                        <h3
+                            class="category-header category-compute font-bold text-emerald-400 text-sm mb-4 border-b border-slate-100 pb-2">
+                            Research on
                             Computing & Optimisation</h3>
                         <div class="grid gap-4">
                             <div class="p-5 bg-white border border-slate-100 rounded-xl">
@@ -352,30 +843,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Other -->
-                    <div class="mb-8">
-                        <h3 class="font-bold text-slate-700 text-sm mb-4 border-b border-slate-100 pb-2">Other Projects
-                        </h3>
-                        <div class="grid gap-4">
-                            <div class="p-5 bg-white border border-slate-100 rounded-xl">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-800 text-sm">Standardisation of Drone Noise Rating
-                                    </h4>
-                                    <div class="text-xs text-slate-400 font-mono">Defence Agency for Technology and
-                                        Quality
-                                    </div>
-                                </div>
-                                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
-                                    <li>Civil/Military Dual-Use Drone Noise Rating and Test Evaluation Procedures</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <div id="awards" class="tab-content">
-                <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Awards & Honors</h2>
+            <div id="awards" class="tab-content section-amber">
+                <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Awards & Honors</h2>
                 <div class="space-y-4">
                     <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-500 bg-slate-50">
                         <div class="text-indigo-500 mt-1"><i class="fas fa-trophy"></i></div>
@@ -409,8 +881,8 @@
                 </div>
             </div>
 
-            <div id="skills" class="tab-content">
-                <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Skills & Techniques</h2>
+            <div id="skills" class="tab-content section-emerald">
+                <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Skills & Techniques</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-sm font-bold text-slate-700 mb-3">Experimental & Analysis</h3>
@@ -465,7 +937,8 @@
     </div>
     </div>
 
-    <div id="career" class="tab-content">
+    <div id="career" class="tab-content section-rose">
+        <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Career Timeline</h2>
         <div
             class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
 
@@ -485,7 +958,8 @@
                     <div class="text-slate-500 text-sm italic mb-2">Ph.D. Candidate & Research Assistant</div>
                     <div class="text-slate-600 text-sm leading-snug">
                         Aerospace Information Engineering. Focus on Hypersonic CFD & Adjoint-based Shape
-                        Optimisation.
+                        Optimisation.<br>
+                        <span class="text-xs text-slate-400">Advisor: Prof. Sangho Kim · GPA: 4.04/4.5</span>
                     </div>
                 </div>
             </div>
@@ -564,7 +1038,12 @@
                         <div class="font-bold text-slate-700">Konkuk University</div>
                         <time class="font-mono text-xs text-slate-400">2014.09 - 2017.08</time>
                     </div>
-                    <div class="text-slate-500 text-sm italic">M.S. in Aerospace Engineering</div>
+                    <div class="text-slate-500 text-sm italic mb-2">M.S. in Aerospace Engineering</div>
+                    <div class="text-slate-600 text-sm leading-snug">
+                        Thesis: Study of multi-fidelity fluid-thermal-structural analysis tool development for
+                        supersonic/hypersonic air vehicle<br>
+                        <span class="text-xs text-slate-400">Advisor: Prof. Sangho Kim · GPA: 3.92/4.5</span>
+                    </div>
                 </div>
             </div>
 
@@ -581,15 +1060,18 @@
                         <div class="font-bold text-slate-700">Konkuk University</div>
                         <time class="font-mono text-xs text-slate-400">2010.03 - 2014.08</time>
                     </div>
-                    <div class="text-slate-500 text-sm italic">B.S. in Aerospace Engineering</div>
+                    <div class="text-slate-500 text-sm italic mb-2">B.S. in Aerospace Engineering</div>
+                    <div class="text-slate-600 text-sm leading-snug">
+                        <span class="text-xs text-slate-400">GPA: 3.02/4.5</span>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
-    <div id="publications" class="tab-content">
+    <div id="publications" class="tab-content section-sky">
         <div class="space-y-6">
-            <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-5">Publications</h2>
+            <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Publications</h2>
 
             <!-- International Conferences -->
             <div class="mb-6">
@@ -1053,6 +1535,118 @@
     <div id="photos" class="tab-content text-center py-10">
         <p class="text-slate-400">Visualizing the research journey.</p>
     </div>
+
+    <!-- Politics & Society -->
+    <div id="politics" class="tab-content section-amber">
+        <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Political & Public Service History</h2>
+
+        <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 border-l-2 border-amber-500 bg-white">
+                <div class="text-amber-500 mt-1"><i class="fas fa-landmark"></i></div>
+                <div>
+                    <h3 class="font-bold text-slate-800 text-sm">제8회 전국동시지방선거 경기도의원 비례후보</h3>
+                    <div class="text-xs text-slate-500 mb-1">정의당 경기도의원 비례대표 3번 | 2022.06.01</div>
+                    <p class="text-xs text-slate-600">'당신의 존엄한 일상 곁에'를 슬로건으로 성소수자 및 소외계층 권익 보호를 위한 정책 제시.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-amber-400 bg-white">
+                <div class="text-amber-400 mt-1"><i class="fas fa-users"></i></div>
+                <div>
+                    <h3 class="font-bold text-slate-800 text-sm">정의당 경기도당 성소수자위원회 위원장</h3>
+                    <div class="text-xs text-slate-500 mb-1">정의당 | 2020.11.21 - 2024.04</div>
+                    <p class="text-xs text-slate-600">지역 단위 인권 조례 발간 및 성소수자 차별 실태 조사 주도.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-slate-300 bg-white">
+                <div class="text-slate-400 mt-1"><i class="fas fa-briefcase"></i></div>
+                <div>
+                    <h3 class="font-bold text-slate-800 text-sm">국회의원 장혜영 정책특보</h3>
+                    <div class="text-xs text-slate-500 mb-1">국회 | 2022.02.01 - 2022.06.01</div>
+                    <p class="text-xs text-slate-600">국회 입법 활동 자문 및 정책 개발 지원.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-rose-400 bg-white">
+                <div class="text-rose-400 mt-1"><i class="fas fa-flag"></i></div>
+                <div>
+                    <h3 class="font-bold text-slate-800 text-sm">트랜스해방전선 부대표</h3>
+                    <div class="text-xs text-slate-500 mb-1">시민단체 | 2018.10.22 - 2024.04</div>
+                    <p class="text-xs text-slate-600">시민사회 단체 대표단으로서 인권 캠페인 기획 및 성소수자 가시화 활동 전개.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-slate-300 bg-white">
+                <div class="text-slate-400 mt-1"><i class="fas fa-clipboard-list"></i></div>
+                <div>
+                    <h3 class="font-bold text-slate-800 text-sm">제21대 국회의원 선거 수원시병 정책팀</h3>
+                    <div class="text-xs text-slate-500 mb-1">박예휘 후보 캠프 | 2020</div>
+                    <p class="text-xs text-slate-600">선거 캠프 정책팀원으로서 지역구 공약 및 정책 로드맵 수립.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News -->
+    <div id="news" class="tab-content section-indigo">
+        <h2 class="text-xs uppercase tracking-[0.2em] font-bold mb-5">Media Presence</h2>
+
+        <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-500 bg-white">
+                <div class="text-indigo-500 mt-1"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <a href="https://www.hani.co.kr/arti/society/society_general/1063616.html" target="_blank" class="font-bold text-slate-800 text-sm hover:text-indigo-600">성별정정에 성전환수술 꼭 해야 하나…청문회 열렸다</a>
+                    <div class="text-xs text-slate-500 mb-1">한겨레 | 2022.10.20</div>
+                    <p class="text-xs text-slate-600">국가인권위원회 '트랜스젠더 성별정정 기준에 관한 청문회' 당사자 진술인으로 참석. 대법원 예규 문제점 지적.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-400 bg-white">
+                <div class="text-indigo-400 mt-1"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <a href="https://www.kyeongin.com/article/1604199" target="_blank" class="font-bold text-slate-800 text-sm hover:text-indigo-600">"평등·배려 없으면 인권 후퇴… 차별 실태 알릴 것"</a>
+                    <div class="text-xs text-slate-500 mb-1">경인일보 | 2022.08.17</div>
+                    <p class="text-xs text-slate-600">정의당 경기도당 성소수자위원장 인터뷰. 경기도 31개 지자체 인권조례 실태 파악 및 정책 제안 활동.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-400 bg-white">
+                <div class="text-indigo-400 mt-1"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <a href="https://www.khan.co.kr/article/202205231539001" target="_blank" class="font-bold text-slate-800 text-sm hover:text-indigo-600">성소수자 후보들이 말하는 6·1 지방선거</a>
+                    <div class="text-xs text-slate-500 mb-1">경향신문 | 2022.05.23</div>
+                    <p class="text-xs text-slate-600">지방선거 출마 인터뷰: 의료·교육·노동 등 삶의 현장에서의 차별 해결 방안 제시. '당신의 존엄은 일상 곁에' 슬로건.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-400 bg-white">
+                <div class="text-indigo-400 mt-1"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <a href="https://news.kbs.co.kr/news/pc/view/view.do?ncd=5132043" target="_blank" class="font-bold text-slate-800 text-sm hover:text-indigo-600">"국가는 성소수자를 같은 국민으로 대우하고 있나…포괄적 차별금지법 통과돼야"</a>
+                    <div class="text-xs text-slate-500 mb-1">KBS 최강시사 | 2021.03.05</div>
+                    <p class="text-xs text-slate-600">트랜스해방전선 부대표로서 변희수 하사 추모 및 성소수자 차별 시정, 포괄적 차별금지법 제정 촉구.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-400 bg-white">
+                <div class="text-indigo-400 mt-1"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <a href="https://www.hankookilbo.com/news/article/A2021030510500003947" target="_blank" class="font-bold text-slate-800 text-sm hover:text-indigo-600">"우리는 벽 뒤에 숨어 살라는 건가요"</a>
+                    <div class="text-xs text-slate-500 mb-1">한국일보 | 2021.03.05</div>
+                    <p class="text-xs text-slate-600">변희수 하사 사망 후 트랜스젠더 인권 현실과 사회적 차별에 대한 인터뷰.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-400 bg-white">
+                <div class="text-indigo-400 mt-1"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <a href="https://www.edaily.co.kr/News/Read?newsId=02374726628980368&mediaCodeNo=257" target="_blank" class="font-bold text-slate-800 text-sm hover:text-indigo-600">"성기와 軍전투력이 무슨 상관…그만 죽여라"</a>
+                    <div class="text-xs text-slate-500 mb-1">이데일리 | 2021.03.05</div>
+                    <p class="text-xs text-slate-600">변희수 하사 강제전역과 사망에 대한 비판. 성소수자 군복무 권리와 차별금지 촉구.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 border-l-2 border-indigo-400 bg-white">
+                <div class="text-indigo-400 mt-1"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <a href="https://www.hani.co.kr/arti/society/society_general/895411.html" target="_blank" class="font-bold text-slate-800 text-sm hover:text-indigo-600">성인인데…성별 정정에 '부모 동의서' 필요한가요?</a>
+                    <div class="text-xs text-slate-500 mb-1">한겨레 | 2019.05.27</div>
+                    <p class="text-xs text-slate-600">트랜스젠더의 성별 정정 절차 문제점 지적. 부모 동의서 요구 등 대법원 예규의 인권침해적 요소 보도.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
 
     <footer class="mt-32 pt-8 border-t border-slate-200 text-center">
@@ -1073,6 +1667,74 @@
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
+
+        function toggleMoreMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('more-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function showTabFromMore(event, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            contents.forEach(content => content.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector('.more-btn').classList.add('active');
+            document.getElementById('more-menu').classList.add('hidden');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('more-menu');
+            const moreBtn = document.querySelector('.more-btn');
+            if (!moreBtn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Auto-count stats from tabs
+        function updateStats() {
+            // Count projects from Research tab (exclude duplicates by title)
+            const projectCards = document.querySelectorAll('#research .rounded-xl h4');
+            const uniqueProjects = new Set();
+            projectCards.forEach(el => {
+                const title = el.textContent.trim();
+                if (title) uniqueProjects.add(title);
+            });
+            document.getElementById('stat-projects').textContent = uniqueProjects.size > 0 ? uniqueProjects.size : '-';
+
+            // Count publications from Publications tab (exclude duplicates by title)
+            const pubCards = document.querySelectorAll('#publications .group.p-4.rounded-xl h4');
+            const uniquePubs = new Set();
+            pubCards.forEach(el => {
+                const title = el.textContent.trim();
+                if (title) uniquePubs.add(title);
+            });
+            document.getElementById('stat-publications').textContent = uniquePubs.size > 0 ? uniquePubs.size : '-';
+
+            // Count awards from Awards tab (items with border-l-2)
+            const awards = document.querySelectorAll('#awards .border-l-2').length;
+            document.getElementById('stat-awards').textContent = awards > 0 ? awards : '-';
+
+            // Years of research (calculate from earliest year in career)
+            const careerYears = document.querySelectorAll('#career time');
+            let earliestYear = new Date().getFullYear();
+            careerYears.forEach(el => {
+                const match = el.textContent.match(/\d{4}/);
+                if (match) {
+                    const year = parseInt(match[0]);
+                    if (year < earliestYear) earliestYear = year;
+                }
+            });
+            const yearsResearch = new Date().getFullYear() - earliestYear;
+            document.getElementById('stat-years').textContent = yearsResearch > 0 ? yearsResearch + '+' : '-';
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', updateStats);
     </script>
 </body>
 
