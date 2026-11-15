@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&family=Noto+Sans+JP:wght@400&family=Noto+Sans+KR:wght@400&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
@@ -38,8 +38,13 @@
             font-size: 2rem !important;
         }
 
-        .serif {
-            font-family: 'Noto Serif KR', serif;
+        .profile-name {
+            font-family: 'Inter', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            letter-spacing: normal;
+        }
+
+        .profile-name [lang="ja"] {
+            font-family: 'Inter', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
         }
 
         .mono {
@@ -430,12 +435,12 @@
                             class="bg-amber-900/50 px-3 py-1 rounded-full text-amber-200 border border-amber-700 text-xs">Standardisation
                             & Policy</span>
                     </div>
-                    <p class="serif text-sm text-slate-500 mb-1 tracking-wide">
-                        류세아 · <ruby>柳<rt>やなぎ</rt>世<rt>せ</rt>亜<rt>あ</rt></ruby>（リュー・セア）
+                    <p lang="ko" class="profile-name text-sm text-slate-500 mb-1">
+                        류세아 · <span lang="ja"><ruby>柳<rt>やなぎ</rt>世<rt>せ</rt>亜<rt>あ</rt></ruby>（リュー・セア）</span>
                     </p>
-                    <p class="serif text-xs text-slate-400 mb-4 tracking-wide">
-                        <span class="opacity-70 text-xs mr-1 italic text-zinc-400 font-sans">雅号:</span>
-                        <ruby>彩<rt>さい</rt>霞<rt>か</rt></ruby>
+                    <p lang="ko" class="profile-name text-xs text-slate-400 mb-4">
+                        <span lang="ja" class="opacity-70 text-xs mr-1 text-zinc-400">雅号:</span>
+                        <ruby lang="ja">彩<rt>さい</rt>霞<rt>か</rt></ruby>
                         <span class="text-xs text-slate-400 ml-1">(Saika, 채하)</span>
                     </p>
                     <p class="text-slate-600 font-medium leading-snug mb-5">
@@ -1138,23 +1143,26 @@
                     <i class="fas fa-book-open"></i> International Journals
                 </h3>
                 <div class="space-y-3">
-                    <!-- MDPI Aerospace (under review) -->
-                    <div data-status="under-review"
+                    <!-- MDPI Aerospace (published) -->
+                    <div data-status="published"
                         class="group p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 hover:border-indigo-300 transition-all">
                         <div class="flex justify-between items-start gap-4">
                             <div class="flex-1">
                                 <h4
                                     class="font-bold text-slate-800 text-sm mb-1 group-hover:text-indigo-600 transition-colors">
-                                    A Directional Spectral Database for UAM Noise Prediction: Construction and
-                                    Reconstruction Assessment
+                                    <a href="https://doi.org/10.3390/aerospace13111069"
+                                        target="_blank" rel="noopener noreferrer" class="hover:underline">A Directional Spectral Database for UAM Noise Prediction: Construction and
+                                        Reconstruction Assessment</a>
                                 </h4>
                                 <p class="text-xs text-slate-500 mb-2"><strong>S. Ryu</strong>, J. Kwon, D. Choi, H. Kim,
                                     S. Kim<sup class="text-slate-400">*</sup></p>
                                 <div class="flex flex-wrap items-center gap-3 text-xs text-slate-400">
                                     <span class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-600">Aerospace
                                         (MDPI)</span>
-                                    <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Under Review</span>
-                                    <span>2026.10</span>
+                                    <span>Vol. 13, No. 11, Article 1069</span>
+                                    <span>2026.11.15</span>
+                                    <a href="https://doi.org/10.3390/aerospace13111069"
+                                        target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">DOI:10.3390/aerospace13111069</a>
                                 </div>
                             </div>
                         </div>
