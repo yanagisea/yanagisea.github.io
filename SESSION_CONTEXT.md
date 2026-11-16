@@ -27,6 +27,28 @@
   publication counter. Browser rendering was not checked.
 - No commit, push, or deployment performed.
 
+## 2026-11-16: JASE metadata and GitHub update
+
+- Request: remove the JASE Published badge, add correct volume/issue,
+  and commit/push the updated page.
+- The original network-share workspace is inaccessible (invalid
+  working directory; Test-Path returns false). Work from a dedicated
+  temporary clone of origin/main, initially at `b6a79ad`.
+- Record the basis before code edits in `docs/jase_publication_update.md`
+  and `docs/jase_publication_update.tex`.
+- Official journal contents, Crossref, and independent KCI record
+  confirm volume 20, issue 9, pages 1-9. Crossref records the publication
+  date as 2026-10-31. The old volume/issue display was reversed.
+- Remove only the visible Published badge; retain published data
+  status and both DOI links. Show correct metadata and date.
+- Preserve the MDPI and font changes. Do not change the unavailable
+  original checkout; it will need synchronization after access returns.
+- Validation: `git diff --check` passed. The page diff is confined to
+  the three JASE metadata lines; published data status, DOI links,
+  publication counter, MDPI card, and profile font rules are preserved.
+- Commit/push and Pages verification will be reported in the session
+  response after the release completes.
+
 ## 2026-11-15: GitHub update request
 
 - The user authorized committing and pushing the publication and profile
